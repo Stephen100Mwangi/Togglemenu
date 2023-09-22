@@ -1,0 +1,112 @@
+body
+{
+    margin: 0;
+    padding: 0;
+    font-family: cursive;
+     box-sizing: border-box;
+     min-height: 100vh;
+     background: linear-gradient(135deg,lightblue,coral);
+}
+.nav
+{
+    width: 250px;
+    height: 20px;
+    top: 20px;
+    position: fixed;
+    z-index: 100;
+    right: 20px;
+}
+
+.toggle
+{
+    position: relative;
+    top: 0;
+    left: 10;
+    width: 100%;
+    height: 50px;
+    background: cornflowerblue;
+    cursor: pointer;
+    align-items: center;
+    justify-content: flex-end;
+    display: flex;
+    padding: 5px 10px;
+}
+.toggle::before
+{
+    content: 'Menu';
+    margin-right: 20px;
+}
+.toggle.active::before
+{
+    content: 'Close';
+    margin-right: 20px;
+}
+.toggle span
+{
+    position: relative;
+    width: 20px;
+    height: 50px;
+}
+.toggle span::before
+{
+    content: '';
+    position: absolute;
+    top: 20px;
+    left: 0;
+    width: 100%;
+    transition: .5s;
+    background: white;
+    height: 2px;
+}
+
+.toggle span::after
+{
+    content: '';
+    position: absolute;
+    bottom: 20px;
+    left: 0;
+    width: 100%;
+    transition: .5s;
+    background: white;
+    height: 2px;
+}
+.toggle.active span::before
+{
+    transform: rotate(225deg);
+    top: 25px;
+}
+
+.toggle.active span::after
+{
+    transform: rotate(135deg);
+    bottom: 25px;
+}
+ul
+{
+    position: relative;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+}
+ul li
+{
+    position: relative;
+    transition: .5s;
+    cursor: pointer;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateX(-250px);
+    transition-delay: calc(0.1s * var(--i));
+    padding: 10px;
+    background: white;
+}
+.nav.active ul li{
+    visibility: visible;
+    opacity: 1;
+    transform: translateX(0px);
+}
+ul li:hover
+{
+    background: green;
+    color: white;
+}
